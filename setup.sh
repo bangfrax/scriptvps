@@ -19,25 +19,25 @@ CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 # ==========================================
 # Link Hosting Kalian Untuk Ssh Vpn
-f="raw.githubusercontent.com/bangfrax/scriptvps/main/ssh"
+fvpn="raw.githubusercontent.com/senowahyu62/scriptvps/main/ssh"
 # Link Hosting Kalian Untuk Sstp
-fn="raw.githubusercontent.com/bangfrax/scriptvps/main/sstp"
+fvpnn="raw.githubusercontent.com/senowahyu62/scriptvps/main/sstp"
 # Link Hosting Kalian Untuk Ssr
-fnn="raw.githubusercontent.com/bangfrax/scriptvps/main/ssr"
+fvpnnn="raw.githubusercontent.com/senowahyu62/scriptvps/main/ssr"
 # Link Hosting Kalian Untuk Shadowsocks
-fnnn="raw.githubusercontent.com/bangfrax/scriptvps/main/shadowsocks"
+fvpnnnn="raw.githubusercontent.com/senowahyu62/scriptvps/main/shadowsocks"
 # Link Hosting Kalian Untuk Wireguard
-fnnnn="raw.githubusercontent.com/bangfrax/scriptvps/main/wireguard"
+fvpnnnnn="raw.githubusercontent.com/senowahyu62/scriptvps/main/wireguard"
 # Link Hosting Kalian Untuk Xray
-fnnnnn="raw.githubusercontent.com/bangfrax/scriptvps/main/xray"
+fvpnnnnnn="raw.githubusercontent.com/senowahyu62/scriptvps/main/xray"
 # Link Hosting Kalian Untuk Ipsec
-fnnnnnn="raw.githubusercontent.com/bangfrax/scriptvps/main/ipsec"
+fvpnnnnnnn="raw.githubusercontent.com/senowahyu62/scriptvps/main/ipsec"
 # Link Hosting Kalian Untuk Backup
-fnnnnnnn="raw.githubusercontent.com/bangfrax/scriptvps/main/backup"
+fvpnnnnnnnn="raw.githubusercontent.com/senowahyu62/scriptvps/main/backup"
 # Link Hosting Kalian Untuk Websocket
-fnnnnnnnn="raw.githubusercontent.com/bangfrax/scriptvps/main/websocket"
+fvpnnnnnnnnn="raw.githubusercontent.com/senowahyu62/scriptvps/main/websocket"
 # Link Hosting Kalian Untuk Ohp
-fnnnnnnnnn="raw.githubusercontent.com/bangfrax/scriptvps/main/ohp"
+fvpnnnnnnnnnn="raw.githubusercontent.com/senowahyu62/scriptvps/main/ohp"
 
 # Getting
 MYIP=$(wget -qO- ipinfo.io/ip);
@@ -50,26 +50,26 @@ if [ -f "/etc/xray/domain" ]; then
 echo "Script Already Installed"
 exit 0
 fi
-mkdir /var/lib/fraxvpn;
-echo "IP=" >> /var/lib/fraxvpn/ipvps.conf
-wget https://${f}/cf.sh && chmod +x cf.sh && ./cf.sh
+mkdir /var/lib/fstorevpn;
+echo "IP=" >> /var/lib/fstorevpn/ipvps.conf
+wget https://${fvpn}/cf.sh && chmod +x cf.sh && ./cf.sh
 #install v2ray
-wget https://${fnnnnn}/ins-xray.sh && chmod +x ins-xray.sh && screen -S xray ./ins-xray.sh
+wget https://${fvpnnnnnn}/ins-xray.sh && chmod +x ins-xray.sh && screen -S xray ./ins-xray.sh
 #install ssh ovpn
-wget https://${f}/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
-wget https://${fn}/sstp.sh && chmod +x sstp.sh && screen -S sstp ./sstp.sh
+wget https://${fvpn}/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
+wget https://${fvpnn}/sstp.sh && chmod +x sstp.sh && screen -S sstp ./sstp.sh
 #install ssr
-wget https://${fnn}/ssr.sh && chmod +x ssr.sh && screen -S ssr ./ssr.sh
-wget https://${fnnn}/sodosok.sh && chmod +x sodosok.sh && screen -S ss ./sodosok.sh
+wget https://${fvpnnn}/ssr.sh && chmod +x ssr.sh && screen -S ssr ./ssr.sh
+wget https://${fvpnnnn}/sodosok.sh && chmod +x sodosok.sh && screen -S ss ./sodosok.sh
 #installwg
-wget https://${fnnnn}/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
+wget https://${fvpnnnnn}/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
 #install L2TP
-wget https://${fnnnnnn}/ipsec.sh && chmod +x ipsec.sh && screen -S ipsec ./ipsec.sh
-wget https://${fnnnnnnn}/set-br.sh && chmod +x set-br.sh && ./set-br.sh
+wget https://${fvpnnnnnnn}/ipsec.sh && chmod +x ipsec.sh && screen -S ipsec ./ipsec.sh
+wget https://${fvpnnnnnnnn}/set-br.sh && chmod +x set-br.sh && ./set-br.sh
 # Websocket
-wget https://${fnnnnnnnn}/edu.sh && chmod +x edu.sh && ./edu.sh
+wget https://${fvpnnnnnnnnn}/edu.sh && chmod +x edu.sh && ./edu.sh
 # Ohp Server
-wget https://${fnnnnnnnnn}/ohp.sh && chmod +x ohp.sh && ./ohp.sh
+wget https://${fvpnnnnnnnnnn}/ohp.sh && chmod +x ohp.sh && ./ohp.sh
 
 rm -f /root/ssh-vpn.sh
 rm -f /root/sstp.sh
@@ -84,7 +84,7 @@ rm -f /root/ohp.sh
 cat <<EOF> /etc/systemd/system/autosett.service
 [Unit]
 Description=autosetting
-Documentation=https://t.me/Akbar218
+Documentation=https://t.me/f218
 
 [Service]
 Type=oneshot
@@ -96,7 +96,7 @@ WantedBy=multi-user.target
 EOF
 systemctl daemon-reload
 systemctl enable autosett
-wget -O /etc/set.sh "https://${f}/set.sh"
+wget -O /etc/set.sh "https://${fvpn}/set.sh"
 chmod +x /etc/set.sh
 history -c
 echo "1.2" > /home/ver
